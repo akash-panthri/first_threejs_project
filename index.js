@@ -21,7 +21,13 @@ const mat = new THREE.MeshStandardMaterial({
 const mesh = new THREE.Mesh(geo, mat);
 scene.add(mesh);
 
+const wireMat = new THREE.MeshBasicMaterial({
+    color: 0xffffff,
+    wireframe:true
+  });
 
+  const wireMesh = new THREE.Mesh(geo, wireMat);
+  mesh.add(wireMesh);
 
 const hemiLight = new THREE.HemisphereLight(0xffffff, 0x000000);
 scene.add(hemiLight);
