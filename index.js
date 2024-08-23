@@ -15,15 +15,20 @@ const scene = new THREE.Scene();
 
 const geo = new THREE.IcosahedronGeometry(1.0, 2);
 const mat = new THREE.MeshStandardMaterial({
-  color: 0xccff,
+  color: 0xffffff,
+  flatShading:true
 });
 const mesh = new THREE.Mesh(geo, mat);
 scene.add(mesh);
+
+
+
 const hemiLight = new THREE.HemisphereLight(0xffffff, 0x000000);
 scene.add(hemiLight);
 
 function animate(t = 0) {
   requestAnimationFrame(animate);
+  mesh.rotation.y = t * 0.0001;
 //   mesh.scale.setScalar(Math.cos((t * 0.001)) + 1.0);
   renderer.render(scene, camera);
 }
